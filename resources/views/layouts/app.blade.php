@@ -17,29 +17,20 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+ 
+     <body class="font-light antialiased">
+            @include('layouts.partials.header')
+        
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
+            <main class="container mx-auto px-5 flex flex-grow">
+               {{ $slot }}
             </main>
-        </div>
+        
+          
 
-        @stack('modals')
-
-        @livewireScripts
+       
+            @include('layouts.partials.footer')
+            @stack('modals')
+            @livewireScripts
     </body>
 </html>
